@@ -1,10 +1,11 @@
 package com.webplayes.movieinfo.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Data;
-
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Null;
+import java.util.Date;
 import java.util.UUID;
 
 
@@ -12,11 +13,17 @@ import java.util.UUID;
 @Builder
 public class Movie {
 
+    @JsonProperty("movieId")
      private UUID uuid;
 
     @NotBlank
     private String name;
 
     private String description;
-    private String length;
+
+    @JsonFormat(pattern = "yyyy-MM-dd",shape = JsonFormat.Shape.STRING)
+    private Date dateRelease;
+
+    @JsonFormat(shape =  JsonFormat.Shape.STRING)
+    private int length;
 }

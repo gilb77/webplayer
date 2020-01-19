@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.json.JsonTest;
 
 @JsonTest
-public class MovieTest extends BaseTest{
+class MovieTest extends BaseTest{
 
     @Autowired
     ObjectMapper objectMapper;
@@ -20,8 +20,10 @@ public class MovieTest extends BaseTest{
         System.out.println(jsonString);
     }
 
-
-
-
-
+    @Test
+    void testDesirealizeMovie() throws JsonProcessingException {
+        String json = "{\"name\":\"Doom\",\"description\":null,\"dateRelease\":null,\"length\":\"0\",\"movieId\":\"b8d98fa5-05ab-49fb-a7b4-6cc8afdab5ff\"}";
+        Movie movie = objectMapper.readValue(json,Movie.class);
+        System.out.println(movie);
+    }
 }
