@@ -1,0 +1,28 @@
+version: '3'
+services:
+  discovery-server:
+    build: ./discovery-server
+    volumes:
+      - ./discovery-server:/app
+    ports:
+      - "8787:8787"
+    network_mode:
+      - netplayer
+
+  media-player:
+      build: ./media-player
+      volumes:
+        - ./media-player:/app
+      ports:
+        - "8484:8484"
+      network_mode:
+        - netplayer
+
+  movie-info:
+      build: ./movie-info
+      volumes:
+        - ./movie-info:/app
+      ports:
+        - "8787:8787"
+      network_mode:
+        - netplayer

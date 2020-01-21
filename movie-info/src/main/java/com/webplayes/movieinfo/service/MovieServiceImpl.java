@@ -1,18 +1,25 @@
 package com.webplayes.movieinfo.service;
 
 import com.webplayes.movieinfo.model.Movie;
-import com.webplayes.movieinfo.repositories.MovieRepository;
-import lombok.RequiredArgsConstructor;
+//import com.webplayes.movieinfo.repositories.MovieRepository;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
 
 @Service
-@RequiredArgsConstructor
+
 public class MovieServiceImpl implements MovieService {
 
-    private final MovieRepository movieRepository;
+//    private MovieRepository movieRepository;
+
+
+//    @Autowired
+//    public MovieServiceImpl(MovieRepository movieRepository){
+//        this.movieRepository = movieRepository;
+//    }
 
     @Override
     public Movie getMovieByName() {
