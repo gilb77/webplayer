@@ -5,7 +5,8 @@ import lombok.Builder;
 @Builder
 public class Movie {
 
-    MovieInfo movieInfo;
+    private MovieInfo movieInfo;
 
+    private Video video;
 
 }
