@@ -11,5 +11,5 @@ spring:
           search-paths:
             - "WebPlayerConfigProperties/{application}/{profile}"
 server:
-  port: 9393
+  port: 8888
 
