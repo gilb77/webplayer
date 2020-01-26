@@ -1,29 +1,30 @@
 package com.webplayes.movieinfo.service;
 
 import com.webplayes.movieinfo.model.Movie;
-//import com.webplayes.movieinfo.repositories.MovieRepository;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import com.webplayes.movieinfo.repositories.MovieRepository;
+import com.webplayes.movieinfo.web.MovieClient;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.UUID;
+//import com.webplayes.movieinfo.repositories.MovieRepository;
 
 
 @Service
-
+@RequiredArgsConstructor
 public class MovieServiceImpl implements MovieService {
 
-//    private MovieRepository movieRepository;
+    private final MovieRepository movieRepository;
 
-
-//    @Autowired
-//    public MovieServiceImpl(MovieRepository movieRepository){
-//        this.movieRepository = movieRepository;
-//    }
+    private final MovieClient movieClient;
 
     @Override
-    public Movie getMovieByName() {
-        return Movie.builder().uuid(UUID.randomUUID()).name("doom").build();
+    public Movie getMovieByName(String name) {
+        Movie movie = movieRepository.findMovieByName(name);
+        if (movie != null)
+            return movie;
+        movie = movieClient.getInfoByName(name);
+        movieRepository.save(movie);
+        return movie;
     }
 
     @Override

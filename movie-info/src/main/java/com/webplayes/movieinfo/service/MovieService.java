@@ -5,7 +5,7 @@ import com.webplayes.movieinfo.model.Movie;
 
 public interface MovieService {
 
-    Movie getMovieByName();
+    Movie getMovieByName(String name);
 
     Movie getMovieByNameNDate();
 

@@ -2,6 +2,8 @@ package com.webplayes.movieinfo.controller;
 
 import com.webplayes.movieinfo.model.Movie;
 import com.webplayes.movieinfo.service.MovieService;
+import com.webplayes.movieinfo.service.MovieServiceImpl;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,20 +17,17 @@ import java.util.UUID;
 
 @Log4j2
 @RestController
+@RequiredArgsConstructor
 @RequestMapping(value = "/api/", produces = {"application/json"}, consumes = {"application/json"})
 public class MovieController {
 
-    private MovieService movieService;
+    private final MovieService movieService;
 
-    @Autowired
-    public MovieController(MovieService movieService) {
-        this.movieService = movieService;
-    }
 
     @GetMapping("movie/{name}")
         public ResponseEntity<Movie> getMovieByName(@PathVariable("name") String name) {
-        Movie movie = movieService.getMovieByName();
-        log.info("Return in response the movie " + name);
+        Movie movie = movieService.getMovieByName(name);
+//        log.debug("Return the movie " + movie.toString());
         return new ResponseEntity<>(movie, HttpStatus.OK);
     }
 
