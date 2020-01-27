@@ -1,30 +1,27 @@
 package com.gil.mediaplayer.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Builder;
-import lombok.Data;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import lombok.*;
 
-import javax.validation.constraints.NotBlank;
-import java.util.Date;
+import java.io.Serializable;
 import java.util.UUID;
 
 
-@Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class MovieInfo {
 
-    @JsonProperty("movieId")
+    @JsonProperty("uuid")
      private UUID uuid;
 
-    @NotBlank
+    @JsonProperty("title")
     private String name;
 
+    @JsonProperty("plot")
     private String description;
 
-    @JsonFormat(pattern = "yyyy-MM-dd",shape = JsonFormat.Shape.STRING)
-    private Date dateRelease;
-
-    @JsonFormat(shape =  JsonFormat.Shape.STRING)
-    private int length;
+    @JsonProperty("length")
+    private String length;
 }

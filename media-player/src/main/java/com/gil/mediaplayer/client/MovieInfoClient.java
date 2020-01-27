@@ -15,13 +15,16 @@ import org.springframework.web.reactive.function.client.WebClient;
 @RequiredArgsConstructor
 public class MovieInfoClient {
 
-    private final String GET_MOVIE = "/api/movie/";
+    private final String GET_MOVIE = "api/movie/";
 
-    private final WebClient webClient;
+    private final WebClient.Builder webClient;
 
-    public Movie getMovie() {
-        MovieInfo movieInfo = webClient.get().uri(GET_MOVIE + "doom").accept(MediaType.APPLICATION_JSON).retrieve()
-                .bodyToMono(MovieInfo.class).block();
+    public Movie getMovie(String name) {
+
+        MovieInfo movieInfo = webClient.build().get().uri("http://localhost:8787/" + GET_MOVIE + name)
+                .header("Content-Type", "application/json")
+                .accept(MediaType.APPLICATION_JSON)
+                .retrieve().bodyToMono(MovieInfo.class).block();
         return Movie.builder().movieInfo(movieInfo).build();
     }
 

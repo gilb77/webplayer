@@ -5,17 +5,17 @@ spring:
     static-path-pattern: /**
   thymeleaf:
     cache: false
-  kafka:
-      consumer:
-        bootstrap-servers: localhost:9092
-        group-id: group_id
-        auto-offset-reset: earliest
-        key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-        value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      producer:
-        bootstrap-servers: localhost:9092
-        key-serializer: org.apache.kafka.common.serialization.StringSerializer
-        value-serializer: org.apache.kafka.common.serialization.StringSerializer
+#  kafka:
+#      consumer:
+#        bootstrap-servers: localhost:9092
+#        group-id: group_id
+#        auto-offset-reset: earliest
+#        key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#        value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#      producer:
+#        bootstrap-servers: localhost:9092
+#        key-serializer: org.apache.kafka.common.serialization.StringSerializer
+#        value-serializer: org.apache.kafka.common.serialization.StringSerializer
 
 video:
    location: C:\\videos
