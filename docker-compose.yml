@@ -1,16 +1,13 @@
 version: '2'
+
 services:
   eureka:
     build: ./discovery-server
-    volumes:
-      - ./discovery-server:/app
     ports:
       - "8787:8787"
 
   config-server:
       build: ./ConfigServer
-      volumes:
-        - ./ConfigServer:/app
       ports:
         - "8888:8888"
       links:
@@ -19,8 +16,6 @@ services:
 
   media-player:
       build: ./media-player
-      volumes:
-        - ./media-player:/app
       ports:
         - "8484:8484"
       links:
@@ -30,11 +25,14 @@ services:
 
   movie-info:
       build: ./movie-info
-      volumes:
-        - ./movie-info:/app
       ports:
-        - "8787:8787"
+        - "8989:8787"
       links:
         - eureka
         - config-server
       restart: always
+
+
+networks:
+    spring-cloud-network:
+        driver: bridge

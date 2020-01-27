@@ -4,7 +4,7 @@ RUN yum install -y java
 
 VOLUME /tmp
 
-ADD /target/configServer.jar myapp.jar
+ADD /target/ConfigServer-0.0.1-SNAPSHOT.jar myapp.jar
 
 RUN sh -c 'touch /myapp.jar'
 

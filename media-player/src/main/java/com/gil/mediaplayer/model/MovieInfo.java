@@ -1,10 +1,8 @@
 package com.gil.mediaplayer.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.*;
 
-import java.io.Serializable;
 import java.util.UUID;
 
 

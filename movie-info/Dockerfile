@@ -4,7 +4,7 @@ RUN yum install -y java
 
 VOLUME /tmp
 
-ADD /target/movie-info.jar myapp.jar
+ADD /target/movie-info-0.0.1SNAPSHOT.jar myapp.jar
 
 RUN sh -c 'touch /myapp.jar'
 

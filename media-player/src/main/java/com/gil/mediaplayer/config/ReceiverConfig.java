@@ -12,9 +12,6 @@ package com.gil.mediaplayer.config;
 //import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 //import org.springframework.kafka.support.serializer.JsonDeserializer;
 
-import java.util.HashMap;
-import java.util.Map;
-
 //@Configuration
 //@EnableKafka
 //public class ReceiverConfig {

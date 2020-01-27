@@ -3,7 +3,6 @@ package com.gil.mediaplayer.validators;
 import com.gil.mediaplayer.annotations.ValidVideoFile;
 import com.gil.mediaplayer.services.impl.VideoValidationService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
